@@ -37,7 +37,8 @@ class PublicController extends Controller
 
         // return view('welcome', compact('book'));
         // return view('welcome', ['book'=>$book]);
-        return view('welcome', compact('book'));
+        $totalBooks = $book->count();
+        return view('welcome', compact('book', 'totalBooks'));
     
     }
 }

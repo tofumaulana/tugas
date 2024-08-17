@@ -20,9 +20,7 @@ use App\Http\Controllers\PublicController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/', [PublicController::class, 'index']);
 
 Route::middleware([
@@ -52,12 +50,6 @@ Route::middleware([
     Route::get('/customer/dashboard', function () {
         return view('customer/dashboard');
     })->name('customer/dashboard');
-    // Route::get('/book/index', function () {
-    //     return view('book.index');
-    // })->name('book.index');
-    // Route::get('/book/create', function () {
-    //     return view('book.create');
-    // })->name('book.create');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -74,21 +66,6 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/customer/dashboard', [CustomerController::class, 'dashboard'])->name('customer/dashboard');
 });
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::middleware(['role:customer'])->group(function(){
-//         Route::get('/customer/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
-//     });
-    
-//     Route::middleware(['role:admin'])->group(function(){ 
-//         Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');   
-//         Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
-    
-//         Route::get('/penulis', [PenulisController::class, 'index'])->name('penulis');
-//         Route::get('/penulis/create', [PenulisController::class, 'create'])->name('penulis.create');
-    
-//     });
-// });
-
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori/store');
@@ -104,11 +81,5 @@ Route::put('/penulis/edit/{id}', [PenulisController::class, 'update'])->name('pe
 Route::delete('/penulis/destroy/{id}', [PenulisController::class, 'destroy'])->name('penulis.destroy');
 Route::get('/penulis/getSlug', [PenulisController::class, 'getSlug'])->name('penulis/getSlug');
 
-// Route::get('/book/index', [BookController::class, 'index'])->name('book.index');
-// Route::get('book/create', [BookController::class, 'create'])->name('book.create');
-// Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
-// Route::get('book/{id}', [BookController::class, 'show']);
-// Route::put('book/{id}', [BookController::class, 'update']);
-// Route::delete('book/{id}', [BookController::class, 'destroy']);
 Route::resource('books', BookController::class);
 

@@ -29,6 +29,7 @@
 
     <div class="container mx-auto p-6">
         <h1 class="text-3xl font-bold mb-6">Books List</h1>
+        <p class="text-xl font-semibold py-3">Total Books: {{ $totalBooks }}</p>
 
         <!-- Search Form -->
         <form method="GET" action="{{ url('/') }}" class="mb-6">
