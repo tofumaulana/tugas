@@ -44,7 +44,7 @@
                         <span class="ml-2">Code</span>
                     </label>
                     <label class="inline-flex items-center">
-                        <input class="form-radio text-blue-500" type="radio" name="search_by" value="author" {{ request('search_by') === 'author' ? 'checked' : '' }}>
+                        <input class="form-radio text-blue-500" type="radio" name="search_by" value="penulis" {{ request('search_by') === 'penulis' ? 'checked' : '' }}>
                         <span class="ml-2">Author</span>
                     </label>
                 </div>
