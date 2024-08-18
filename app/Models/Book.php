@@ -26,7 +26,7 @@ class Book extends Model
 
     public function penulis()
     {
-        return $this->belongsTo(Penulis::class);
+        return $this->belongsTo(Penulis::class, 'penulis_id');
     }
 
 }

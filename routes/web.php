@@ -21,7 +21,8 @@ use App\Http\Controllers\PublicController;
 */
 
 
-Route::get('/', [PublicController::class, 'index']);
+Route::get('/', [PublicController::class, 'index'])->name('welcome');
+Route::get('/fetch-books', [PublicController::class, 'index'])->name('fetch.books');
 
 Route::middleware([
     'auth:sanctum',
